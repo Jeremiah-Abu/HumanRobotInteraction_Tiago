@@ -1,0 +1,36 @@
+FOR SPEECH RECOGNITION 
+
+open new terminal 
+run roscore
+
+Launch ROS4HRI speech recognition 
+open new terminal 
+cd catkin_ws 
+source /devel/setup.bash
+cd src/ros-vosk 
+roslaunch ros_vosk ros_vosk.launch
+
+Listen to speech recognition results for debugging 
+open new terminal 
+rostopic echo /speech_recognition/final_result
+
+FOR TEXT TO SPEECH CONVERSION WITH INSTALLATION
+
+open new terminal 
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+cd catkin_ws
+catkin_make
+
+git clone https://github.com/ros-drivers/audio_common.git 
+
+rosdep install sound_play 
+rosmake sound_play
+
+rosrun sound_play 
+soundplay_node.py 
+
+open new terminal 
+rosrun sound_play say.py "Hello world" 
+
+
+IF THERE ARE ANY PROBLEMS USE catkin_make a bit more often 
