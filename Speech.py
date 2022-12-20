@@ -32,6 +32,3 @@ def listenToSpeech():
 
 if __name__ == '__main__':
     listenToSpeech()
-    
-    
-   
